@@ -12,7 +12,7 @@ For suggestions or issues, feel free to open an issue on the [GitHub repository]
 4. Move the `BepInEx/config/com.ctnoriginals.cw.crosshair.cfg` file to `BepInEx/config` folder.
 5. Launch the game and never wonder where you are aiming again!
 ### Thunderstore
-Install using the Thunderstore Mod Manager: https://thunderstore.io/c/content-warning/p/CTNOriginals/CrossHair/
+Install using the Thunderstore Mod Manager: https://thunderstore.io/c/content-warning/p/CTWOriginals/CrossHair/
 
 ---
 
