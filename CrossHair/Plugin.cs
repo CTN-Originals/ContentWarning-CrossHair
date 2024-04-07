@@ -1,7 +1,5 @@
 using BepInEx;
 using BepInEx.Logging;
-using CTNOriginals.ContentWarning.CrossHair.Handlers;
-using CTNOriginals.ContentWarning.CrossHair.Utilities;
 
 namespace CTNOriginals.ContentWarning.CrossHair;
 

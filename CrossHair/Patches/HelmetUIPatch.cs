@@ -2,7 +2,6 @@ using TMPro;
 using UnityEngine;
 
 using CTNOriginals.ContentWarning.CrossHair.Utilities;
-using System;
 using CTNOriginals.ContentWarning.CrossHair.Handlers;
 
 namespace CTNOriginals.ContentWarning.CrossHair.Patches;
