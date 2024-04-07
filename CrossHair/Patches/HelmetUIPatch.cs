@@ -70,9 +70,14 @@ public class HelmetUIPatch {
 		shadowText.rectTransform.localPosition = new Vector3(2, -2, 0);
 
 		rect.SetAsLastSibling();
+
+		FadeHandler.FadeFields.Clear();
+		FadeHandler.Initiate();
 	}
+
 	private static void UpdatePatch(On.HelmetUIToggler.orig_Update orig, HelmetUIToggler self) {
 		orig(self);
+		FadeHandler.Update();
 	}
 	
 	private static string HexFormatException(string message = "color") {

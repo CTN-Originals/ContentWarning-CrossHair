@@ -4,12 +4,13 @@ using TMPro;
 using CTNOriginals.ContentWarning.CrossHair.Patches;
 using CTNOriginals.ContentWarning.CrossHair.Utilities;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CTNOriginals.ContentWarning.CrossHair.Handlers;
 
 public class Box<T> where T : struct {
 	public T Value { get; set; }
-	public Box(T value) { this.Value = value; }
+	public Box(T value = default) { this.Value = value; }
 }
 
 public class FadeHandler {
@@ -69,17 +70,30 @@ public class FadeHandler {
 	public static List<FadeValueField> FadeFields = new();
 
 	static bool hasStarted = false;
-	public static void Start() {
-		foreach (FadeValueField targetField in FadeFields) {
-			targetField.LogValues();
-		}
-	}
-
-	public static void Update() {
-		if (FadeFields.Count == 0) { return; }
+	public static void Initiate() {
 		if (!hasStarted) {
 			hasStarted = true;
-			Start();
+			foreach (FadeValueField targetField in FadeFields) {
+				targetField.LogValues();
+			}
+		}
+
+		PlayerPatch.RegisterFields();
+
+		CLogger.LogDebug($"Registered fields: {FadeFields.Count}");
+	}
+
+	static int debugCount = 0;
+	public static void Update() {
+		if (FadeFields.Count == 0) {
+			if (debugCount % 100 == 0) {
+				CLogger.LogDebug($"{debugCount * 0.001f}: No fields, returning...");
+			}
+			debugCount++;
+			return; 
+		}
+		if (!hasStarted) {
+			Initiate();
 			return;
 		}
 
@@ -106,9 +120,18 @@ public class FadeHandler {
 		// }
 		
 		if (aprox > 0.0001f) {
-			CLogger.LogDebug($"Fading: {lowestFade}");
+			// CLogger.LogDebug($"Fading: {lowestFade}");
 			SetCrossHairAlphaPercent(lowestFade);
 		}
+	}
+
+	public static void AddFadeField(Box<bool> field, bool targetValue, float fadeValue = 0.2f, float fadeOutDuration = 0.2f, float fadeInDuration = 0.5f) {
+		if (FadeFields.Any(x => x.currentValue == field)) {
+			CLogger.LogDebug($"Field already added"); 
+			return;
+		}
+		FadeValueField newField = new(field, targetValue, fadeValue, fadeOutDuration, fadeInDuration);
+		FadeFields.Add(newField);
 	}
 
 
