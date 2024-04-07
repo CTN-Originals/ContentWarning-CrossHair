@@ -20,13 +20,14 @@ Install using the Thunderstore Mod Manager: https://thunderstore.io/c/content-wa
 | Option | Description | Default |
 | ------ | ----------- | ------- |
 | **CrossHairText** | Text to display as crosshair (use \n for new line) | `-  +  -` |
-| **CrossHairSize** | Size of the crosshair | `40` |
+| **CrossHairSize** | Size of the crosshair | `25` |
 | **CrossHairShadow** | Whether to display a shadow behind the crosshair | `true` |
 | **CrossHairColor** | Color of the crosshair in hexadecimal (Do not include the #) | `ffffff` |
-| **CrossHairOpacity** | Opacity of the crosshair (0 to 100)% | `80` |
+| **CrossHairOpacity** | Opacity of the crosshair (0 to 100)% | `50` |
 
 ## To-Do
-- [ ] Add crosshair fading on specific events (for example, when aiming the camera it needs to fade to 0%)
+- [x] Add crosshair fading on specific events (for example, when aiming the camera it needs to fade to 0%)
+  - [ ] Add more values
 
 ## Changelog
 See [CHANGELOG.md](https://github.com/CTN-Originals/ContentWarning-CrossHair/blob/main/CHANGELOG.md) for the full changelog.

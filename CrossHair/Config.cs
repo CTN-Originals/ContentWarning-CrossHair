@@ -18,11 +18,11 @@ public class Config {
 
 	public void LoadFile() {
 		CrossHairText = Configurations.Bind("!General", "CrossHairText", "-  +  -", "Text to display as crosshair (use \\n for new line)");
-		CrossHairSize = Configurations.Bind("!General", "CrossHairSize", 40f, "Size of the crosshair");
+		CrossHairSize = Configurations.Bind("!General", "CrossHairSize", 25f, "Size of the crosshair");
 		CrossHairShadow = Configurations.Bind("!General", "CrossHairShadow", true, "Whether to display a shadow behind the crosshair");
 
 		CrossHairColor = Configurations.Bind("Appearance", "CrossHairColor", "ffffff", "Color of the crosshair in hexadecimal (Do not include the #)");
-		CrossHairOpacity = Configurations.Bind("Appearance", "CrossHairOpacity", 80, "Opacity of the crosshair (0 to 100)%");
+		CrossHairOpacity = Configurations.Bind("Appearance", "CrossHairOpacity", 50, "Opacity of the crosshair (0 to 100)%");
 		// CrossHairFading = Configurations.Bind("Appearance", "CrossHairFading", true, "Whether the crosshair should fade in and out in specific situations");
 
 		CLogger.LogInfo($"CrossHairText: {CrossHairText.Value}");

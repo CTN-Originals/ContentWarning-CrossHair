@@ -13,6 +13,71 @@ public class Box<T> where T : struct {
 	public Box(T value = default) { this.Value = value; }
 }
 
+// public class Boxer<T> where T : MonoBehaviour
+// {
+// 	private readonly Dictionary<string, Box<bool>> _boxes = new();
+// 	private readonly T _component;
+// 	private readonly Dictionary<string, FieldInfo> _fields = new();
+// 	private readonly List<Hook> _hooks = new();
+
+// 	public Boxer(T component)
+// 	{
+// 		_component = component;
+
+// 		var sourceMethodNames = new List<string>() { "Awake", "Update" };
+// 		var targetMethod = typeof(Boxer<T>).GetMethod("UpdateBoxes", BindingFlags.Instance | BindingFlags.NonPublic);
+
+// 		foreach (var method in sourceMethodNames)
+// 		{
+// 			var sourceMethod = typeof(T).GetMethod(method, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+// 			if (sourceMethod != null)
+// 			{
+// 				_hooks.Add(new Hook(sourceMethod, targetMethod, _component));
+// 			}
+// 		}
+
+// 		foreach (var field in typeof(T).GetFields(BindingFlags.Instance | BindingFlags.Public))
+// 		{
+// 			if (field.FieldType == typeof(bool))
+// 			{
+// 				_boxes[field.Name] = new Box<bool>();
+// 				_fields[field.Name] = field;
+// 			}
+// 		}
+// 	}
+
+// 	public Box<bool> this[string key]
+// 	{
+// 		get
+// 		{
+// 			if (!_boxes.ContainsKey(key))
+// 			{
+// 				_boxes[key] = new Box<bool>();
+// 			}
+// 			return _boxes[key];
+// 		}
+// 		set
+// 		{
+// 			_boxes[key] = value;
+// 		}
+// 	}
+
+// 	private void UpdateBoxes(Action<T> orig, T self)
+// 	{
+// 		CLogger.LogDebug($"{self.gameObject.name}");
+// 		orig(self);
+// 		foreach (var box in _boxes)
+// 		{
+// 			var newValue = (bool)_fields[box.Key].GetValue(self);
+// 			if (box.Value.Value != newValue)
+// 			{
+// 				box.Value.Value = newValue;
+// 				box.Value.OnChanged(newValue);
+// 			}
+// 		}
+// 	}
+// }
+
 public class FadeHandler {
 	public class FadeValueField {
 		public bool targetValue; //? The value "value" should be set to start fade

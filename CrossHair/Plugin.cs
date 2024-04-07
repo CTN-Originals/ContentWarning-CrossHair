@@ -3,13 +3,13 @@ using BepInEx.Logging;
 
 namespace CTNOriginals.ContentWarning.CrossHair;
 
-[BepInPlugin("com.ctnoriginals.cw.crosshair", "CrossHair", "1.0.0")]
+[BepInPlugin("com.ctnoriginals.cw.crosshair", "CrossHair", "1.1.0")]
 public class Plugin : BaseUnityPlugin {
 	public static ManualLogSource ManualLog;
 
 	public static string PluginGUID = "com.ctnoriginals.cw.crosshair";
 	public static string PluginName = "CrossHair";
-	public static string PluginVersion = "1.0.0";
+	public static string PluginVersion = "1.1.0";
 
 	public static bool DebugMode = false;
 	public static bool OutputDebugLogs = false;
